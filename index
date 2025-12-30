@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Email Planner Landing Page</title>
+    <style>
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .active .accordion-content {
+            max-height: 100px;
+        }
+        .active .icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans leading-tight">
+
+    <div class="bg-white border-b p-4 flex items-center justify-start space-x-3 max-w-md mx-auto">
+        <span class="bg-black text-white text-[10px] font-bold px-2 py-1 uppercase">Limited Time Offer!</span>
+        <div class="flex-1 bg-gray-200 h-2 rounded-full overflow-hidden">
+            <div class="bg-orange-500 h-full w-[90%]"></div>
+        </div>
+        <span class="text-[10px] font-bold text-gray-600 uppercase">90% Complete...</span>
+    </div>
+
+    <main class="max-w-md mx-auto bg-white min-h-screen p-6 shadow-md">
+        
+        <h1 class="text-3xl font-black uppercase tracking-tighter mb-6">
+            Never stare at a blank screen again. Map out a year of high-converting emails in under 60 minutes
+        </h1>
+
+        <div class="relative w-full aspect-video bg-gray-100 border border-gray-300 flex flex-col items-center justify-center mb-2">
+            <div class="w-12 h-12 border-2 border-black rounded-full flex items-center justify-center">
+                <div class="ml-1 w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-black border-b-[8px] border-b-transparent"></div>
+            </div>
+            <p class="text-[10px] mt-4 font-bold text-gray-500 uppercase tracking-widest">Video Placeholder (Autoplay Off)</p>
+        </div>
+        <p class="text-center text-[11px] text-gray-500 mb-6 italic">(Caption: Watch how to make list building your highest ROI activity)</p>
+
+        <button class="w-full bg-[#FF6600] active:scale-95 text-white font-black py-4 rounded text-lg shadow-lg uppercase transition-all">
+            Yes, Give Me Access Now
+        </button>
+        <p class="text-center text-xs text-gray-500 mt-2 mb-10">One time price: <span class="line-through">$197</span> <span class="font-bold text-black">$47</span></p>
+
+        <h2 class="text-lg font-black uppercase mb-4 border-b pb-2">What's Inside the Planner?</h2>
+        <div class="space-y-2 mb-12" id="accordion">
+            <div class="border-b">
+                <button onclick="toggleAccordion(this)" class="w-full bg-gray-100 p-3 flex justify-between items-center font-bold text-sm outline-none">
+                    <span>Phase 1: Mining the Topics</span>
+                    <span class="icon transition-transform duration-300">+</span>
+                </button>
+                <div class="accordion-content bg-white">
+                    <p class="p-3 text-xs text-gray-600">Discover how to extract high-value content ideas from your daily life effortlessly.</p>
+                </div>
+            </div>
+            <div class="border-b">
+                <button onclick="toggleAccordion(this)" class="w-full bg-gray-100 p-3 flex justify-between items-center font-bold text-sm outline-none">
+                    <span>Phase 2: Drafting the Path</span>
+                    <span class="icon transition-transform duration-300">+</span>
+                </button>
+                <div class="accordion-content bg-white">
+                    <p class="p-3 text-xs text-gray-600">Connect your ideas to your offers with a logical bridge that converts readers.</p>
+                </div>
+            </div>
+            <div class="border-b">
+                <button onclick="toggleAccordion(this)" class="w-full bg-gray-100 p-3 flex justify-between items-center font-bold text-sm outline-none">
+                    <span>Phase 3: The Game Plan</span>
+                    <span class="icon transition-transform duration-300">+</span>
+                </button>
+                <div class="accordion-content bg-white">
+                    <p class="p-3 text-xs text-gray-600">Finalize your 365-day calendar so you never have to wonder what to send again.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="bg-gray-50 -mx-6 px-6 py-8 border-t border-gray-200">
+            <h2 class="text-xl font-black uppercase mb-4">Mobile Checkout</h2>
+            <p class="font-bold mb-4">Total Today: $47</p>
+            
+            <button class="w-full bg-[#FF6600] text-white font-black py-5 rounded text-xl uppercase tracking-wider mb-6">
+                Complete Order
+            </button>
+            <p class="text-center text-[10px] text-gray-400 uppercase">No thanks, I'll return to waste my time<br>Terms | Privacy</p>
+        </section>
+
+    </main>
+
+    <script>
+        function toggleAccordion(element) {
+            const parent = element.parentElement;
+            const isActive = parent.classList.contains('active');
+            
+            // Close all items first (optional, for a true accordion feel)
+            document.querySelectorAll('#accordion > div').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Toggle the clicked item
+            if (!isActive) {
+                parent.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
